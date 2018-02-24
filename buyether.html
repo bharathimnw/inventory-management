@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="web3.min.js"></script>
+<script src="script.js"></script>
+<meta charset="utf-8">
+<title> buying tokens </title>
+</head>
+ <body style="background-color:lightblue">
+ <h1 style="color:black;"> <center>To buy ether </center> </h1>
+ 
+    <input id="value31" type="text" placeholder="value">
+    <input id="value32" type="text" placeholder="account no">
+    <input type="button" onclick="tokens()" value="transfer ether">
+    <input type="button" onclick="clickbutton()" value="submit">
+    
+<script>
+		
+		function tokens()
+		{
+		var eth=document.getElementById("value31").value;
+		eth=web3.toWei(eth, "ether");
+		web3.eth.defaultAccount=document.getElementById("value32").value;
+		imng.sendEther({value:eth}, function(err, result){ if(!err) 
+
+		alert(result);
+
+ });	
+		}
+function clickbutton()
+			{
+				window.location.href="customer.html";
+			}
+	</script>
+        </body>
+        </html>
+

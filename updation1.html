@@ -1,0 +1,113 @@
+<! DOCTYPE html>
+<html>
+<head>
+
+	<h1><b><center>UPDATION</center></b></h1>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="web3.min.js"></script>
+	<script src="script.js"></script>
+
+</head><br>
+<body style="background-color:lightblue"><center>
+
+<table border="1"><td><th><center><b>product update:</b></center></th></td>
+      <tr><td>product id</td><td><input type="Number" id="idvalue" value=""/></td></tr>
+      <tr><td>product update</td><td><button type="button" onclick="p_update()">upadate</button><br></td></tr>
+	<tr><td>product name</td><td><input type="text" id="st1" /></td></tr>
+<tr><td>product type</td><td><input type="text" id="st2" /></td></tr>
+<tr><td>product price</td><td><input type="text" id="st3" /></td></tr>
+<tr><td>product amount</td><td><input type="Number" id="st4"/></td></tr>
+<tr><td>remining count</td><td><input type="Number" id="st5"/></td></tr>
+</table><br><br>
+
+<input type="button" value="Click" onclick="loadPage()" /><br>
+
+<iframe id="display_frame" width=300 height=300 frameborder="1"></iframe><br><br>
+
+<table border="1"><td><th><center><b>user update:</b></center></th></td>
+	<tr><td>user id</td><td><input type:"Number" id="idvalue1" value=""/></td></tr>
+	<tr><td>user update</td><td><button type="button" onclick="ur_update()">upadate</button></td></tr>
+<tr><td>user name</td><td><input type="text" id="ut1" /></td></tr>
+<tr><td>remining amount</td><td><input type="text" id="ut2" /></td></tr>
+<tr><td>buycount</td><td><input type="text" id="ut3" /></td></tr>
+</table><br><br>
+
+<table border="1"><td><th><center><b>purchase product:</b></center></th></td>
+	<tr><td>product id</td><td><input type:"Number" id="proid" value=""/></td></tr>
+	<tr><td>purchase update</td><td><button type="button" onclick="pur_product()">upadate</button></td></tr>
+<tr><td>product name</td><td><input type="text" id="pt1" /></td></tr>
+<tr><td>product remingcount</td><td><input type="text" id="pt2" /></td></tr>
+<tr><td>amount</td><td><input type="text" id="pt3" /></td></tr>
+</table><br><br>
+
+
+<script>
+       
+        
+        
+function p_update(){
+alert("hi");
+	var x=document.getElementById("idvalue").value;
+	imng.pr_update(x,function(error,result){
+		console.log(result);
+document.getElementById("st1").value=result[0];
+	document.getElementById("st2").value=result[1];
+	document.getElementById("st3").value=result[2];
+	document.getElementById("st4").value=result[3];
+	  document.getElementById("st5").value=result[4];  
+alert(result);
+if(result[4]==0) 
+	{	
+	alert("refill the products");
+        window.open="in.html";
+	}
+		
+});
+}
+function loadPage()
+{
+
+    document.getElementById("display_frame").src = "in.html";
+     
+
+  }
+
+window.onload = loadPage();
+
+
+
+function ur_update(){
+alert("hi");
+	var x=document.getElementById("idvalue1").value;
+	imng. ur_update(x,function(error,result){
+		console.log(result);
+	document.getElementById("ut1").value=result[0];
+	document.getElementById("ut2").value=result[1];
+	document.getElementById("ut3").value=result[2];
+alert(result);
+		
+});
+       
+}
+
+function pur_product(){
+alert("hi");
+	var x=document.getElementById("proid").value;
+	imng.pur_prod(x,function(error,result){
+		console.log(result);
+	document.getElementById("pt1").value=result[0];
+	document.getElementById("pt2").value=result[1];
+	document.getElementById("pt3").value=result[2];
+alert(result);
+	
+		
+});
+
+
+}
+
+
+</script>
+</center>
+</body>
+</html>

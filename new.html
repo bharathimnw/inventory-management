@@ -1,0 +1,72 @@
+<! DOCTYPE html>
+<html>
+<head>
+
+	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="web3.min.js"></script>
+	<script src="script.js"></script>
+
+<body style="background-color:lightblue"><center>
+<table border="1"><center><form name="form1" method="post">
+	
+	<tr><td><input type="button" value="count" onclick="get()"/></td></tr>
+</table><br><br>
+
+<table border="1"><center><form name="form1" method="post">
+	
+	<tr><td><input type="button" value="products" onclick="products()"/></td></tr>
+	<tr><td><textarea id="t"  rows="6" cols="50"></textarea></td></tr>
+	</form></center>
+
+</table>
+<script>
+var count;
+function get(){
+	alert("hi");
+		
+      imng.get(function (error,result){
+	alert(result);
+     count=result;
+alert(result);
+
+
+  });
+}
+ 
+
+
+function products(){
+alert("hi");
+	
+	var st=[];
+	var id=[];
+	var res=[];
+	
+	imng.products(function (error,result){
+		for(var j=0;j<count;j++)
+		{
+		var a=result[0][j];
+            
+		var s=' ';
+		for(var k=0;k<a.length;k+=2){
+		s += String.fromCharCode(parseInt(a.substr(k,2), 16));
+		}
+            			st.push(s);
+		}
+		for(var i=0;i<count;i++){
+			var b=result[1][i];
+			id.push(b);
+			res.push("id:"+id+"\n"+"product:"+st+"count:"+count);
+			document.getElementById('t').value=res;
+		}
+                             
+            });
+
+}
+</script>
+</center>
+</body>
+</head>
+</html>

@@ -1,0 +1,127 @@
+<! DOCTYPE html>
+<html>
+<head>
+
+	<h1><b><center>INVENTORY MANAGEMENT<center></b><br><br></h1>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="web3.min.js"></script>
+	<script src="script.js"></script>
+
+<body style="background-color:lightblue"><center>
+<table border="1">
+<td><th><center><b>product details</b></center></th></td>
+	<tr><td>product id</td><td><input type="Number" id="id" value=""/></td></tr>
+	<tr><td>product name</td><td><input type="text" id="name" value="name"/></td></tr>
+	<tr><td>product type</td><td><input type="text" id="type" value=""/></td></tr>
+	<tr><td>product price</td><td><input type="Number" id="price" value=""/></td></tr>
+	<tr><td>count</td><td><input type="Number" id="count" value="20"/></td></tr>
+	<tr><td>initial amount</td><td><input type="Number" id="amount1" value="0"/></td></tr>
+	<tr><td>products</td><td><button type="button" onclick="pdetails()">pdetails</button></td></tr>
+
+
+</table><br><br>
+<table border="1"><center><form name="form1" method="post">
+	
+	<tr><td><input type="button" value="count" onclick="get()"/></td></tr>
+</table><br><br>
+
+<table border="1"><center><form name="form1" method="post">
+	
+	<tr><td><input type="button" value="products" onclick="products()"/></td></tr>
+	<tr><td><textarea id="t"  rows="6" cols="100"></textarea></td></tr>
+	</form></center>
+
+</table>
+
+
+
+
+<table border="1"><center><form name="form1" method="post">
+	<tr><td><input type="button" value="submit" onclick="clickbutton()"/></td></tr>
+	<tr><td></form></center></tr>
+
+</table>
+
+<script>
+       
+       var count; 
+      	
+
+function pdetails(){
+
+	var x=document.getElementById("id").value;
+	var y=document.getElementById("name").value;
+	var z=document.getElementById("type").value;
+	var w=document.getElementById("price").value;
+	var v=document.getElementById("count").value;
+	imng.pro_details(x,y,z,w,v,function (error,result){
+            if (!error) {
+             alert(result);
+               
+            
+            } else {
+              alert(result);
+            }
+        });
+
+	
+       
+}
+
+function get(){
+	alert("hi");
+		
+      imng.get(function (error,result){
+	alert(result);
+     count=result;
+alert(result);
+
+
+  });
+}
+ 
+
+
+function products(){
+alert("hi");
+	
+	var st=[];
+	var id=[];
+	var res=[];
+	
+	imng.products(function (error,result){
+		for(var j=0;j<count;j++)
+		{
+		var a=result[0][j];
+            
+		var s=' ';
+		for(var k=0;k<a.length;k+=2){
+		s += String.fromCharCode(parseInt(a.substr(k,2), 16));
+		}
+            			st.push(s);
+		}
+		for(var i=0;i<count;i++){
+			var b=result[1][i];
+			id.push(b);
+			res.push("id:"+id+"\n"+"product:"+st+"count:"+count+"avail count:"+"20");
+			document.getElementById('t').value=res;
+			 
+		}
+                             
+            });
+
+}
+
+
+function clickbutton()
+			{
+				window.location.href="buyether.html";
+			}
+			
+</script>
+</center>
+</body>
+</head>
+</html>
+

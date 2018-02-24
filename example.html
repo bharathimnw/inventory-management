@@ -1,0 +1,33 @@
+<html>
+	<head><center><b>LOGIN FORM<b></center><br></head>
+<body style="background-color:lightblue"><center>
+		
+			
+<form name="login">
+Username<input type="text" name="userid"/><br><br>
+Password<input type="password" name="pswrd"/><br><br>
+<input type="button" onclick="check(this.form)" value="login"/>
+<input type="reset" value="Cancel"/>
+</form>
+
+<script language="javascript">
+function check(form)
+{
+ 
+ if(form.userid.value == "admin" && form.pswrd.value == "mnxw")
+  {
+    window.open('in.html')
+  }
+ else
+ {
+   alert("Error Password or Username")
+  }
+}
+function clickbutton()
+			{
+				window.location.href="in.html";
+			}
+</script>	
+</body>
+
+</html>
